@@ -62,10 +62,14 @@ public class MainPage {
     }
     //нажатие на кнопку "Войти в аккаунт"
     public void clickOnSignInButton() {
+        new WebDriverWait(driver, Duration.ofSeconds(3))
+                .until(ExpectedConditions.elementToBeClickable(signInButton));
         driver.findElement(signInButton).click();
     }
     //нажатие на кнопку "Личный кабинет"
     public void clickOnLkButton() {
+        new WebDriverWait(driver, Duration.ofSeconds(3))
+                .until(ExpectedConditions.elementToBeClickable(lkButton));
         driver.findElement(lkButton).click();
     }
 }

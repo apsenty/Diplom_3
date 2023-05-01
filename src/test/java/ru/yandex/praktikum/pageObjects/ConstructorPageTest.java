@@ -2,6 +2,7 @@ package ru.yandex.praktikum.pageObjects;
 
 import io.qameta.allure.junit4.DisplayName;
 import org.junit.Test;
+import ru.yandex.praktikum.TestBase;
 import static org.junit.Assert.*;
 
 public class ConstructorPageTest extends TestBase {
