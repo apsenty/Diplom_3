@@ -8,17 +8,17 @@ import java.time.Duration;
 
 public class RegistrationPage {
     //поле Имя
-    private By nameField = By.xpath(".//fieldset[@class='Auth_fieldset__1QzWN mb-6'][1]//input");
+    private final By nameField = By.xpath(".//fieldset[@class='Auth_fieldset__1QzWN mb-6'][1]//input");
     //поле email
-    private By emailField = By.xpath(".//fieldset[@class='Auth_fieldset__1QzWN mb-6'][2]//input");
+    private final By emailField = By.xpath(".//fieldset[@class='Auth_fieldset__1QzWN mb-6'][2]//input");
     //поле Пароль
-    private By passwordField = By.xpath(".//input[@name='Пароль']");
+    private final By passwordField = By.xpath(".//input[@name='Пароль']");
     //кнопка Зарегистрироваться
-    private By signUpButton = By.xpath(".//button[text()='Зарегистрироваться']");
+    private final By signUpButton = By.xpath(".//button[text()='Зарегистрироваться']");
     //ссылка Войти
-    private By signInLink = By.xpath(".//a[text()='Войти']");
+    private final By signInLink = By.xpath(".//a[text()='Войти']");
     //подсказка "Некорректный пароль"
-    private By incorrectPasswordMessage = By.xpath(".//p[text()='Некорректный пароль']");
+    private final By incorrectPasswordMessage = By.xpath(".//p[text()='Некорректный пароль']");
 
     private WebDriver driver;
 

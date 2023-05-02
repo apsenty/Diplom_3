@@ -5,11 +5,11 @@ import org.openqa.selenium.WebDriver;
 
 public class PasswordRecoveryPage {
     //поле email
-    private By emailField = By.tagName("input");
+    private final By emailField = By.tagName("input");
     //кнопка Восстановить
-    private By recoveryButton = By.xpath(".//button[text()='Восстановить']");
+    private final By recoveryButton = By.xpath(".//button[text()='Восстановить']");
     //ссылка Войти
-    private By signInLink = By.xpath(".//a[text()='Войти']");
+    private final By signInLink = By.xpath(".//a[text()='Войти']");
 
     private WebDriver driver;
 

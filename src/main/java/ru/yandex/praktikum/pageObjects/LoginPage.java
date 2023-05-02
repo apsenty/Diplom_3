@@ -9,17 +9,17 @@ import java.time.Duration;
 
 public class LoginPage {
     //поле email
-    private By emailField = By.xpath(".//input[@name='name']");
+    private final By emailField = By.xpath(".//input[@name='name']");
     //поле Пароль
-    private By passwordField = By.xpath(".//input[@name='Пароль']");
+    private final By passwordField = By.xpath(".//input[@name='Пароль']");
     //кнопка Войти
-    private By signInButton = By.xpath(".//button[text()='Войти']");
+    private final By signInButton = By.xpath(".//button[text()='Войти']");
     //ссылка Зарегистрироваться
-    private By signUpLink = By.xpath(".//a[text()='Зарегистрироваться']");
+    private final By signUpLink = By.xpath(".//a[text()='Зарегистрироваться']");
     //ссылка Восстановить пароль
-    private By passwordRecoveryLink = By.xpath(".//a[text()='Восстановить пароль']");
+    private final By passwordRecoveryLink = By.xpath(".//a[text()='Восстановить пароль']");
     //текст "Вход"
-    private By loginText = By.xpath(".//h2[text()='Вход']");
+    private final By loginText = By.xpath(".//h2[text()='Вход']");
 
     private WebDriver driver;
 
@@ -47,19 +47,12 @@ public class LoginPage {
     public void clickOnPasswordRecoveryLink() {
         driver.findElement(passwordRecoveryLink).click();
     }
-    //видимость кнопки Войти - скорее всего удалить
-    /* public boolean checkSignInButtonIsVisible(){
-        new WebDriverWait(driver, Duration.ofSeconds(3))
-                .until(ExpectedConditions.elementToBeClickable(signInButton));
-        return driver.findElement(signInButton).isDisplayed();
-    } */
     //видимость текста Вход
     public boolean checkLoginTextIsVisible(){
         new WebDriverWait(driver, Duration.ofSeconds(3))
                 .until(ExpectedConditions.visibilityOfElementLocated(loginText));
         return driver.findElement(loginText).isDisplayed();
     }
-
     //метод входа в ЛК
     public void signIn(String email, String password) {
         setEmailField(email);

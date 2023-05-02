@@ -20,7 +20,6 @@ public class MainPage {
     private final By fillingButton = By.xpath(".//span[text()='Начинки']");
     //иконка начинки "Филе Люминесцентного тетраодонтимформа"
     private final By lumineMeat = By.xpath(".//img[@alt='Филе Люминесцентного тетраодонтимформа']");
-
     //кнопка "Личный кабинет"
     private final By lkButton = By.xpath(".//p[text()='Личный Кабинет']");
     //кнопка "Войти в аккаунт"
@@ -35,14 +34,20 @@ public class MainPage {
     }
     //нажатие на раздел Булки
     public void clickOnBunButton() {
+        new WebDriverWait(driver, Duration.ofSeconds(3))
+                .until(ExpectedConditions.elementToBeClickable(bunButton));
         driver.findElement(bunButton).click();
     }
     //нажатие на раздел Соусы
     public void clickOnSauceButton() {
+        new WebDriverWait(driver, Duration.ofSeconds(3))
+                .until(ExpectedConditions.elementToBeClickable(sauceButton));
         driver.findElement(sauceButton).click();
     }
     //нажатие на раздел Начинки
     public void clickOnFillingButton() {
+        new WebDriverWait(driver, Duration.ofSeconds(3))
+                .until(ExpectedConditions.elementToBeClickable(fillingButton));
         driver.findElement(fillingButton).click();
     }
     //проверить, что виден "соус с шипами"
@@ -66,14 +71,16 @@ public class MainPage {
     //нажатие на кнопку "Войти в аккаунт"
     public void clickOnSignInButton() {
         new WebDriverWait(driver, Duration.ofSeconds(3))
-                .until(ExpectedConditions.visibilityOfElementLocated(signInButton));
+                .until(ExpectedConditions.elementToBeClickable(signInButton));
         driver.findElement(signInButton).click();
     }
     //нажатие на кнопку "Личный кабинет"
     public void clickOnLkButtonPage() {
+        new WebDriverWait(driver, Duration.ofSeconds(3))
+                .until(ExpectedConditions.elementToBeClickable(lkButton));
         driver.findElement(lkButton).click();
     }
-    //отображение кнопки "Оформить заказ"
+    //отображение кнопки "Оформить заказ" (для авторизованных пользователей)
     public boolean isCreateOrderButtonVisible() {
         new WebDriverWait(driver, Duration.ofSeconds(3))
                 .until(ExpectedConditions.visibilityOfElementLocated(createOrderButton));
