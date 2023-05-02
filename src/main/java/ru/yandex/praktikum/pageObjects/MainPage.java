@@ -9,21 +9,24 @@ import java.time.Duration;
 
 public class MainPage {
     //кнопка Булки
-    private By bunButton = By.xpath(".//span[text()='Булки']");
+    private final By bunButton = By.xpath(".//span[text()='Булки']");
     //иконка булки "Краторная булка"
-    private By craterBun = By.xpath(".//img[@alt='Краторная булка N-200i']");
+    private final By craterBun = By.xpath(".//img[@alt='Краторная булка N-200i']");
     //кнопка Соусы
-    private By sauceButton = By.xpath(".//span[text()='Соусы']");;
+    private final By sauceButton = By.xpath(".//span[text()='Соусы']");;
     //иконка соуса "Соус с шипами"
-    private By thornSauce = By.xpath(".//img[@alt='Соус с шипами Антарианского плоскоходца']");
+    private final By thornSauce = By.xpath(".//img[@alt='Соус с шипами Антарианского плоскоходца']");
     //кнопка Начинки
-    private By fillingButton = By.xpath(".//span[text()='Начинки']");
+    private final By fillingButton = By.xpath(".//span[text()='Начинки']");
     //иконка начинки "Филе Люминесцентного тетраодонтимформа"
-    private By lumineMeat = By.xpath(".//img[@alt='Филе Люминесцентного тетраодонтимформа']");
+    private final By lumineMeat = By.xpath(".//img[@alt='Филе Люминесцентного тетраодонтимформа']");
+
     //кнопка "Личный кабинет"
-    private By lkButton = By.xpath(".//a[@href='/account']");
+    private final By lkButton = By.xpath(".//p[text()='Личный Кабинет']");
     //кнопка "Войти в аккаунт"
-    private By signInButton = By.xpath(".//button[text()='Войти в аккаунт']");
+    private final By signInButton = By.xpath(".//button[text()='Войти в аккаунт']");
+    //кнопка "Оформить заказ" - появляется только у авторизованного пользователя
+    private final By createOrderButton = By.xpath(".//button[text()='Оформить заказ']");
 
     private WebDriver driver;
 
@@ -43,19 +46,19 @@ public class MainPage {
         driver.findElement(fillingButton).click();
     }
     //проверить, что виден "соус с шипами"
-    public boolean checkThornSauceIsVisible() {
+    public boolean isThornSauceVisible() {
         new WebDriverWait(driver, Duration.ofSeconds(3))
                 .until(ExpectedConditions.visibilityOfElementLocated(thornSauce));
         return driver.findElement(thornSauce).isDisplayed();
     }
     //проверить, что видно "люминесцентное филе"
-    public boolean checkLumineMeatIsVisible() {
+    public boolean isLumineMeatVisible() {
         new WebDriverWait(driver, Duration.ofSeconds(3))
                 .until(ExpectedConditions.visibilityOfElementLocated(lumineMeat));
         return driver.findElement(lumineMeat).isDisplayed();
     }
     //проверить, что видно "краторную булку"
-    public boolean checkCraterBunIsVisible() {
+    public boolean isCraterBunVisible() {
         new WebDriverWait(driver, Duration.ofSeconds(3))
                 .until(ExpectedConditions.visibilityOfElementLocated(craterBun));
         return driver.findElement(craterBun).isDisplayed();
@@ -63,13 +66,17 @@ public class MainPage {
     //нажатие на кнопку "Войти в аккаунт"
     public void clickOnSignInButton() {
         new WebDriverWait(driver, Duration.ofSeconds(3))
-                .until(ExpectedConditions.elementToBeClickable(signInButton));
+                .until(ExpectedConditions.visibilityOfElementLocated(signInButton));
         driver.findElement(signInButton).click();
     }
     //нажатие на кнопку "Личный кабинет"
-    public void clickOnLkButton() {
-        new WebDriverWait(driver, Duration.ofSeconds(3))
-                .until(ExpectedConditions.elementToBeClickable(lkButton));
+    public void clickOnLkButtonPage() {
         driver.findElement(lkButton).click();
+    }
+    //отображение кнопки "Оформить заказ"
+    public boolean isCreateOrderButtonVisible() {
+        new WebDriverWait(driver, Duration.ofSeconds(3))
+                .until(ExpectedConditions.visibilityOfElementLocated(createOrderButton));
+        return driver.findElement(createOrderButton).isDisplayed();
     }
 }

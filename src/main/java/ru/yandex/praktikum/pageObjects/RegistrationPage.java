@@ -45,7 +45,8 @@ public class RegistrationPage {
     }
     //видимость подсказки "Некорректный пароль"
     public boolean checkIncorrectPasswordMessageIsVisible() {
-        new WebDriverWait(driver, Duration.ofSeconds(2));
+        new WebDriverWait(driver, Duration.ofSeconds(3))
+                .until(ExpectedConditions.visibilityOfElementLocated(incorrectPasswordMessage));
         return driver.findElement(incorrectPasswordMessage).isDisplayed();
     }
     //нажатие ссылки Войти

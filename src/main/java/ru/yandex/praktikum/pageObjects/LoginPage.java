@@ -18,12 +18,6 @@ public class LoginPage {
     private By signUpLink = By.xpath(".//a[text()='Зарегистрироваться']");
     //ссылка Восстановить пароль
     private By passwordRecoveryLink = By.xpath(".//a[text()='Восстановить пароль']");
-    //кнопка Конструктор
-    private By constructorButton = By.xpath(".//p[text()='Конструктор']");
-    //логотип Stellar Burgers
-    private By stellarBurgersLogo = By.className("AppHeader_header__logo__2D0X2");
-    //кнопка Выход (при авторизованном пользователе)
-    private By signOutButton = By.xpath(".//button[text()='Выход']");
     //текст "Вход"
     private By loginText = By.xpath(".//h2[text()='Вход']");
 
@@ -33,12 +27,32 @@ public class LoginPage {
         this.driver = driver;
     }
 
-    //видимость кнопки Войти
-    public boolean checkSignInButtonIsVisible(){
+    //ввод email
+    public void setEmailField(String email) {
+        driver.findElement(emailField).sendKeys(email);
+    }
+    //ввод пароля
+    public void setPasswordField(String password) {
+        driver.findElement(passwordField).sendKeys(password);
+    }
+    //нажатие кнопки Войти
+    public void clickOnSignInButton() {
+        driver.findElement(signInButton).click();
+    }
+    //переход по ссылке Зарегистрироваться
+    public void clickOnSignUpLink(){
+        driver.findElement(signUpLink).click();
+    }
+    //переход по ссылке Восстановить пароль
+    public void clickOnPasswordRecoveryLink() {
+        driver.findElement(passwordRecoveryLink).click();
+    }
+    //видимость кнопки Войти - скорее всего удалить
+    /* public boolean checkSignInButtonIsVisible(){
         new WebDriverWait(driver, Duration.ofSeconds(3))
                 .until(ExpectedConditions.elementToBeClickable(signInButton));
         return driver.findElement(signInButton).isDisplayed();
-    }
+    } */
     //видимость текста Вход
     public boolean checkLoginTextIsVisible(){
         new WebDriverWait(driver, Duration.ofSeconds(3))
@@ -46,15 +60,10 @@ public class LoginPage {
         return driver.findElement(loginText).isDisplayed();
     }
 
-    //ввод email
-    //ввод пароля
-    //нажатие кнопки Войти
-    //переход по ссылке Зарегистрироваться
-    public void clickOnSignUpLink(){
-        driver.findElement(signUpLink).click();
+    //метод входа в ЛК
+    public void signIn(String email, String password) {
+        setEmailField(email);
+        setPasswordField(password);
+        clickOnSignInButton();
     }
-    //переход по ссылке Восстановить пароль
-    //переход на страницу Конструктора (по кнопке Конструктор)
-    //переход на страницу Конструктора (по логотипу)
-    //нажатие кнопки Выход
 }

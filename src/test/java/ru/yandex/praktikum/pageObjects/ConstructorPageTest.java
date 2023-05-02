@@ -12,25 +12,25 @@ public class ConstructorPageTest extends TestBase {
     //сначала перейти на раздел с соусами/начинками, а потом на раздел Булки
     //т.к. при открытии главной страницы дефолтно открыт раздел Булки
     public void checkGoToBunSection() {
-        MainPage objMainPage = new MainPage(driver);
-        objMainPage.clickOnSauceButton();
-        objMainPage.clickOnBunButton();
-        assertTrue(objMainPage.checkCraterBunIsVisible());
+        MainPage mainPage = new MainPage(driver);
+        mainPage.clickOnSauceButton();
+        mainPage.clickOnBunButton();
+        assertTrue(mainPage.isCraterBunVisible());
     }
 
     @Test
     @DisplayName("Переход к разделу Соусы на странице Конструктора")
     public void checkGoToSauceSection() {
-        MainPage objMainPage = new MainPage(driver);
-        objMainPage.clickOnSauceButton();
-        assertTrue(objMainPage.checkThornSauceIsVisible());
+        MainPage mainPage = new MainPage(driver);
+        mainPage.clickOnSauceButton();
+        assertTrue(mainPage.isThornSauceVisible());
     }
 
     @Test
     @DisplayName("Переход к разделу Начинки на странице Конструктора")
     public void checkGoToFillingSection() {
-        MainPage objMainPage = new MainPage(driver);
-        objMainPage.clickOnFillingButton();
-        assertTrue(objMainPage.checkLumineMeatIsVisible());
+        MainPage mainPage = new MainPage(driver);
+        mainPage.clickOnFillingButton();
+        assertTrue(mainPage.isLumineMeatVisible());
     }
 }
