@@ -5,6 +5,7 @@ public class LoginUserResponse {
     private User user;
     private String accessToken;
     private String refreshToken;
+    private String message;
 
 
     public boolean isSuccess() {
@@ -37,5 +38,13 @@ public class LoginUserResponse {
 
     public void setRefreshToken(String refreshToken) {
         this.refreshToken = refreshToken;
+    }
+
+    public String getMessage() {
+        return message;
+    }
+
+    public void setMessage(String message) {
+        this.message = message;
     }
 }

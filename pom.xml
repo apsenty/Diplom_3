@@ -81,6 +81,9 @@
                                 <value>${project.build.directory}/allure-results</value>
                             </property>
                         </systemProperties>
+                        <systemPropertyVariables>
+                            <browser>chrome</browser>
+                        </systemPropertyVariables>
                     </configuration>
                     <dependencies>
                         <dependency>

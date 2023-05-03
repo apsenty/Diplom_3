@@ -35,19 +35,19 @@ public class MainPage {
     //нажатие на раздел Булки
     public void clickOnBunButton() {
         new WebDriverWait(driver, Duration.ofSeconds(3))
-                .until(ExpectedConditions.elementToBeClickable(bunButton));
+                .until(ExpectedConditions.visibilityOfElementLocated(bunButton));
         driver.findElement(bunButton).click();
     }
     //нажатие на раздел Соусы
     public void clickOnSauceButton() {
         new WebDriverWait(driver, Duration.ofSeconds(3))
-                .until(ExpectedConditions.elementToBeClickable(sauceButton));
+                .until(ExpectedConditions.visibilityOfElementLocated(sauceButton));
         driver.findElement(sauceButton).click();
     }
     //нажатие на раздел Начинки
     public void clickOnFillingButton() {
         new WebDriverWait(driver, Duration.ofSeconds(3))
-                .until(ExpectedConditions.elementToBeClickable(fillingButton));
+                .until(ExpectedConditions.visibilityOfElementLocated(fillingButton));
         driver.findElement(fillingButton).click();
     }
     //проверить, что виден "соус с шипами"

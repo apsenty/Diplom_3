@@ -1,5 +1,6 @@
 package ru.yandex.praktikum.pageObjects;
 
+import io.qameta.allure.Step;
 import io.qameta.allure.junit4.DisplayName;
 import org.junit.Test;
 import ru.yandex.praktikum.TestBase;
@@ -9,8 +10,7 @@ public class ConstructorPageTest extends TestBase {
 
     @Test
     @DisplayName("Переход к разделу Булки на странице Конструктора")
-    //сначала перейти на раздел с соусами/начинками, а потом на раздел Булки
-    //т.к. при открытии главной страницы дефолтно открыт раздел Булки
+    @Step("Переход к разделу Булки")
     public void checkGoToBunSection() {
         MainPage mainPage = new MainPage(driver);
         mainPage.clickOnSauceButton();
@@ -20,6 +20,7 @@ public class ConstructorPageTest extends TestBase {
 
     @Test
     @DisplayName("Переход к разделу Соусы на странице Конструктора")
+    @Step("Переход к разделу Соусы")
     public void checkGoToSauceSection() {
         MainPage mainPage = new MainPage(driver);
         mainPage.clickOnSauceButton();
@@ -28,6 +29,7 @@ public class ConstructorPageTest extends TestBase {
 
     @Test
     @DisplayName("Переход к разделу Начинки на странице Конструктора")
+    @Step("Переход к разделу Начинки")
     public void checkGoToFillingSection() {
         MainPage mainPage = new MainPage(driver);
         mainPage.clickOnFillingButton();
