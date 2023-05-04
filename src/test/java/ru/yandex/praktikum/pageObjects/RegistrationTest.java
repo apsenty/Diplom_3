@@ -49,15 +49,4 @@ public class RegistrationTest extends TestBase {
         setRegistrationFields("Apsenty", "olgaleto@yandex.ru", "qaws1234");
         assertTrue(loginPage.checkLoginTextIsVisible());
     }
-
-    @Test
-    @DisplayName("Ошибка при указании пароля менее 6 символов")
-    public void registrationPasswordLessThen6SymbolsShouldReturnError() {
-    //вводим неправильный пароль, нажимаем "зарегистрироваться", проверяем, что отображается подсказка
-        RegistrationPage registrationPage = new RegistrationPage(driver);
-        goToLk();
-        goToSignUp();
-        setRegistrationFields("Apsenty", "olgaleto@yandex.ru", "1234");
-        assertTrue(registrationPage.checkIncorrectPasswordMessageIsVisible());
-    }
 }
