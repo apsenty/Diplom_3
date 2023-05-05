@@ -10,22 +10,18 @@ import java.time.Duration;
 public class MainPage {
     //кнопка Булки
     private final By bunButton = By.xpath(".//span[text()='Булки']");
-    //иконка булки "Краторная булка"
-    private final By craterBun = By.xpath(".//img[@alt='Краторная булка N-200i']");
     //кнопка Соусы
-    private final By sauceButton = By.xpath(".//span[text()='Соусы']");;
-    //иконка соуса "Соус с шипами"
-    private final By thornSauce = By.xpath(".//img[@alt='Соус с шипами Антарианского плоскоходца']");
+    private final By sauceButton = By.xpath(".//span[text()='Соусы']");
     //кнопка Начинки
     private final By fillingButton = By.xpath(".//span[text()='Начинки']");
-    //иконка начинки "Филе Люминесцентного тетраодонтимформа"
-    private final By lumineMeat = By.xpath(".//img[@alt='Филе Люминесцентного тетраодонтимформа']");
     //кнопка "Личный кабинет"
     private final By lkButton = By.xpath(".//p[text()='Личный Кабинет']");
     //кнопка "Войти в аккаунт"
     private final By signInButton = By.xpath(".//button[text()='Войти в аккаунт']");
     //кнопка "Оформить заказ" - появляется только у авторизованного пользователя
     private final By createOrderButton = By.xpath(".//button[text()='Оформить заказ']");
+    //локатор активной вкладки в конструкторе
+    private final By activeConstructorTab = By.xpath(".//div[@class='tab_tab__1SPyG tab_tab_type_current__2BEPc pt-4 pr-10 pb-4 pl-10 noselect']");
 
     private WebDriver driver;
 
@@ -35,38 +31,20 @@ public class MainPage {
     //нажатие на раздел Булки
     public void clickOnBunButton() {
         new WebDriverWait(driver, Duration.ofSeconds(3))
-                .until(ExpectedConditions.visibilityOfElementLocated(bunButton));
+                .until(ExpectedConditions.elementToBeClickable(bunButton));
         driver.findElement(bunButton).click();
     }
     //нажатие на раздел Соусы
     public void clickOnSauceButton() {
         new WebDriverWait(driver, Duration.ofSeconds(3))
-                .until(ExpectedConditions.visibilityOfElementLocated(sauceButton));
+                .until(ExpectedConditions.elementToBeClickable(sauceButton));
         driver.findElement(sauceButton).click();
     }
     //нажатие на раздел Начинки
     public void clickOnFillingButton() {
         new WebDriverWait(driver, Duration.ofSeconds(3))
-                .until(ExpectedConditions.visibilityOfElementLocated(fillingButton));
+                .until(ExpectedConditions.elementToBeClickable(fillingButton));
         driver.findElement(fillingButton).click();
-    }
-    //проверить, что виден "соус с шипами"
-    public boolean isThornSauceVisible() {
-        new WebDriverWait(driver, Duration.ofSeconds(3))
-                .until(ExpectedConditions.visibilityOfElementLocated(thornSauce));
-        return driver.findElement(thornSauce).isDisplayed();
-    }
-    //проверить, что видно "люминесцентное филе"
-    public boolean isLumineMeatVisible() {
-        new WebDriverWait(driver, Duration.ofSeconds(3))
-                .until(ExpectedConditions.visibilityOfElementLocated(lumineMeat));
-        return driver.findElement(lumineMeat).isDisplayed();
-    }
-    //проверить, что видно "краторную булку"
-    public boolean isCraterBunVisible() {
-        new WebDriverWait(driver, Duration.ofSeconds(3))
-                .until(ExpectedConditions.visibilityOfElementLocated(craterBun));
-        return driver.findElement(craterBun).isDisplayed();
     }
     //нажатие на кнопку "Войти в аккаунт"
     public void clickOnSignInButton() {
@@ -85,5 +63,9 @@ public class MainPage {
         new WebDriverWait(driver, Duration.ofSeconds(3))
                 .until(ExpectedConditions.visibilityOfElementLocated(createOrderButton));
         return driver.findElement(createOrderButton).isDisplayed();
+    }
+    //возвращает название активной вкладки в конструкторе
+    public String getTextFromActiveTab() {
+        return driver.findElement(activeConstructorTab).getText();
     }
 }

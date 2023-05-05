@@ -15,7 +15,8 @@ public class ConstructorPageTest extends TestBase {
         MainPage mainPage = new MainPage(driver);
         mainPage.clickOnSauceButton();
         mainPage.clickOnBunButton();
-        assertTrue(mainPage.isCraterBunVisible());
+        String expectedTabName = "Булки";
+        assertEquals(expectedTabName, mainPage.getTextFromActiveTab());
     }
 
     @Test
@@ -24,7 +25,8 @@ public class ConstructorPageTest extends TestBase {
     public void checkGoToSauceSection() {
         MainPage mainPage = new MainPage(driver);
         mainPage.clickOnSauceButton();
-        assertTrue(mainPage.isThornSauceVisible());
+        String expectedTabName = "Соусы";
+        assertEquals(expectedTabName, mainPage.getTextFromActiveTab());
     }
 
     @Test
@@ -33,6 +35,7 @@ public class ConstructorPageTest extends TestBase {
     public void checkGoToFillingSection() {
         MainPage mainPage = new MainPage(driver);
         mainPage.clickOnFillingButton();
-        assertTrue(mainPage.isLumineMeatVisible());
+        String expectedTabName = "Начинки";
+        assertEquals(expectedTabName, mainPage.getTextFromActiveTab());
     }
 }
